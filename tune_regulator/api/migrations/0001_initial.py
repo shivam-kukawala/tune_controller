@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
                 ('code', models.CharField(default='', max_length=8, unique=True)),
                 ('host', models.CharField(max_length=50, unique=True)),
                 ('guest_can_pause', models.BooleanField(default=False)),
-                ('votes_to_speak', models.IntegerField(default=1)),
+                ('votes_to_skip', models.IntegerField(default=1)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
             ],
         ),
