@@ -7,6 +7,8 @@ export default class Connectroom extends Component {
     }
 
     render(){
-        return <p> This is the room connecting page</p>;
+        return <div>
+            This is the room connecting page
+            </div>
     }
 }

@@ -12,7 +12,7 @@ export default class Homepage extends Component {
         return (
         <Router>
             <Switch>
-                <Route exact path = "/"><p>This is the home page</p></Route>
+                <Route exact path = "/"><div>This is the home page</div></Route>
                 <Route path="/connect" component={Connectroom}/>
                 <Route path="/make" component={Makeroom}/>
             </Switch>
