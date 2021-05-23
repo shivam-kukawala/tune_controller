@@ -19,6 +19,9 @@ export default class Makeroom extends Component {
             votesToSkip : this.defaultVotes
         }
         this.handleRoomButtonPressed = this.handleRoomButtonPressed.bind(this);
+        this.handleVotesChange = this.handleVotesChange.bind(this);
+        this.handleGuestCanPauseChange = this.handleGuestCanPauseChange.bind(this);
+
     } 
 
 
@@ -35,7 +38,17 @@ export default class Makeroom extends Component {
     }
 
     handleRoomButtonPressed(){
-
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type' : 'application/json' },
+            body: JSON.stringify({
+                votes_to_skip: this.state.votesToSkip,
+                guest_can_pause: this.state.guestCanPause
+            })
+        };
+        fetch('/api/create-room', requestOptions)
+        .then((response) => response.json())
+        .then((data) => console.log(data));
     }
 
 
@@ -43,7 +56,7 @@ export default class Makeroom extends Component {
         return <Grid container spacing = {1}>
             <Grid item xs={12} align = "center">
                 <Typography component="h4" variant="h4">
-                    Create  a room
+                    Create  aaaa room
                 </Typography>
             </Grid>
             <Grid item xs={12} align = "center">
@@ -94,7 +107,7 @@ export default class Makeroom extends Component {
             </Grid>
 
             <Grid item xs={12} align = "center">
-                <Button color="primary" variant="contained">
+                <Button color="primary" variant="contained" onClick={this.handleRoomButtonPressed}>
                     Create A Room
                 </Button>
             </Grid>
